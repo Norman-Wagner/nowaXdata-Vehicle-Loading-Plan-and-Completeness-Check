@@ -1,0 +1,14 @@
+name: technical-watch
+on:
+  schedule: [{ cron: "17 5 * * 1" }]
+  workflow_dispatch:
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: python scripts/technical_watch.py --report technical-watch-report.md
+      - uses: actions/upload-artifact@v4
+        with: { name: technical-watch-report, path: technical-watch-report.md }
