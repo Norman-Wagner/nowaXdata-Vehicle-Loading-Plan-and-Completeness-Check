@@ -1,0 +1,33 @@
+name: Verify release
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          python scripts/build_portable_prompts.py --check
+          python scripts/validate_repo.py
+          python -m unittest discover -s tests -v
+      - name: Match tag and plugin version
+        if: github.ref_type == 'tag'
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          expected = 'v' + json.loads(Path('.codex-plugin/plugin.json').read_text())['version']
+          if os.environ['RELEASE_TAG'] != expected: raise SystemExit(f'Tag must be {expected}')
+          print(f'Release version confirmed: {expected}')
+          PY

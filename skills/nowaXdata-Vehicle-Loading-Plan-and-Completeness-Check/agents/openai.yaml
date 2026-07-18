@@ -1,0 +1,5 @@
+interface:
+  display_name: "NOWA X Data Vehicle Loading Plan"
+  short_description: "Fahrzeugbeladung planen und vollständig prüfen"
+  default_prompt: "Use $nowaXdata-Vehicle-Loading-Plan-and-Completeness-Check to create a sourced vehicle loading plan and completeness checklist without unnecessary personal data."
+  allow_implicit_invocation: true
