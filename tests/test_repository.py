@@ -2,7 +2,7 @@ import csv, io, json, unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-NAME = "nowaXdata-Vehicle-Loading-Plan-and-Completeness-Check"
+NAME = "nowaxdata-vehicle-loading-plan-completeness-check"
 
 class RepositoryTests(unittest.TestCase):
     def test_trigger_mix(self):

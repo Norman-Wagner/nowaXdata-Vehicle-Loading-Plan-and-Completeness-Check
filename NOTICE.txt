@@ -3,6 +3,7 @@ Copyright 2026 Norman Wagner / WagnerConnect
 
 Developed by Norman Wagner / WagnerConnect.
 Project line: NOWA X Data. Website: nowaxdata.de
+Designed in Germany.
 
 The names NOWA X, NOWA X Data and WagnerConnect are not licensed as
 trademarks under the Apache License 2.0.

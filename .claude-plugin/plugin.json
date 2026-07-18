@@ -1,0 +1,10 @@
+{
+  "name": "nowaxdata-vehicle-loading-plan-completeness-check",
+  "version": "0.1.0",
+  "description": "Manufacturer-neutral vehicle loading plans, completeness checks, readiness decisions, defects, replenishment, and inspection tracking.",
+  "author": {"name": "Norman Wagner / WagnerConnect"},
+  "homepage": "https://nowaxdata.de",
+  "repository": "https://github.com/Norman-Wagner/nowaXdata-Vehicle-Loading-Plan-and-Completeness-Check",
+  "license": "Apache-2.0",
+  "keywords": ["vehicle", "load-plan", "inventory", "readiness", "inspection"]
+}

@@ -1,5 +1,5 @@
 ---
-name: nowaXdata-Vehicle-Loading-Plan-and-Completeness-Check
+name: nowaxdata-vehicle-loading-plan-completeness-check
 description: Create, review, digitize, and maintain manufacturer-neutral vehicle loading plans, fixed-location inventories, completeness checks, minimum-stock controls, inspection schedules, expiry tracking, defect reports, replenishment lists, handover records, printable checklists, CSV templates, data models, web-application requirements, and acceptance criteria. Use for fleet vehicles, service vans, hearses, care services, emergency or aid vehicles, municipal fleets, event logistics, security services, workshops, field service, or any vehicle with defined equipment. Do not use for ordinary packing lists without a vehicle, general warehouse inventory, travel packing, or legal advice unrelated to vehicle equipment.
 ---
 
@@ -14,9 +14,10 @@ description: Create, review, digitize, and maintain manufacturer-neutral vehicle
 5. Record each item with unique item ID, fixed position, target quantity, minimum stock, unit, permanence/consumable type, condition criteria, and applicable dates.
 6. Separate structural equipment, reusable equipment, consumables, regulated goods, personal protective equipment, documents, and optional additions.
 7. Calculate status without hiding ambiguity: complete, below minimum, missing, damaged, dirty, expired, inspection due, misplaced, blocked, or not checked.
-8. Produce the requested output and include plan version, effective date, scope, unresolved assumptions, evidence status, and change history.
-9. Use roles instead of personal names for responsibility. Exclude customer, patient, case, health, private-contact, and confidential identifiers.
-10. For heavy, hazardous, infectious, flammable, pressurized, temperature-sensitive, or otherwise regulated items, stop short of prescribing storage. Require current competent guidance, manufacturer instructions, load-securing rules, and applicable law.
+8. Evaluate five independent readiness dimensions: completeness, condition, validity, correct location, and requirement evidence. Never hide a failed dimension behind one overall green status.
+9. Produce the requested output and include plan version, effective date, scope, unresolved assumptions, evidence status, and change history.
+10. Use roles instead of personal names for responsibility. Exclude customer, patient, case, health, private-contact, and confidential identifiers.
+11. For heavy, hazardous, infectious, flammable, pressurized, temperature-sensitive, or otherwise regulated items, stop short of prescribing storage. Require current competent guidance, manufacturer instructions, load-securing rules, and applicable law.
 
 ## Evidence and obligation gate
 
@@ -26,6 +27,10 @@ description: Create, review, digitize, and maintain manufacturer-neutral vehicle
 - If the user asks for legal certainty, state the limits and request authoritative sources or specialist review.
 
 Read [methodology.md](references/methodology.md) for the planning sequence and identifiers. Read [load-plan-model.md](references/load-plan-model.md) for schemas and calculations. Read [inspections-and-defects.md](references/inspections-and-defects.md) for status logic and corrective actions. Read [safety-and-compliance.md](references/safety-and-compliance.md) whenever regulated or safety-relevant equipment appears. Read [privacy.md](references/privacy.md) when photos, logs, handovers, or assigned people are involved. Read [industry-examples.md](references/industry-examples.md) only for neutral examples, never as a source of mandatory equipment.
+
+Read [readiness-model.md](references/readiness-model.md) whenever the user asks whether a vehicle is ready, operational, complete, releasable, or safe to deploy.
+
+Apply [quality-principles.md](references/quality-principles.md) when designing plans, templates, data models, interfaces, or software acceptance criteria.
 
 ## Output contract
 

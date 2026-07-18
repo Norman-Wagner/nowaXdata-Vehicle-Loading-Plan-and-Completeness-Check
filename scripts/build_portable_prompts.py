@@ -10,11 +10,11 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-NAME = "nowaXdata-Vehicle-Loading-Plan-and-Completeness-Check"
+NAME = "nowaxdata-vehicle-loading-plan-completeness-check"
 SKILL = ROOT / "skills" / NAME
 DIST = ROOT / "dist"
-FULL = ("methodology.md", "load-plan-model.md", "inspections-and-defects.md", "safety-and-compliance.md", "privacy.md", "industry-examples.md")
-COMPACT = ("load-plan-model.md", "safety-and-compliance.md", "privacy.md")
+FULL = ("methodology.md", "quality-principles.md", "load-plan-model.md", "readiness-model.md", "inspections-and-defects.md", "safety-and-compliance.md", "privacy.md", "industry-examples.md")
+COMPACT = ("load-plan-model.md", "readiness-model.md", "safety-and-compliance.md", "privacy.md")
 
 def strip_frontmatter(text: str) -> str:
     return re.sub(r"\A---\s*\n.*?\n---\s*\n", "", text, count=1, flags=re.S)

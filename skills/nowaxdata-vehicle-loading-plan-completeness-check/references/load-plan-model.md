@@ -6,7 +6,8 @@
 | --- | --- |
 | Vehicle | `vehicle_id`, `type`, `purpose`, `status` |
 | Plan | `plan_id`, `vehicle_id`, `version`, `effective_date`, `state` |
-| Location | `position_id`, `parent_id`, `label`, `access_notes` |
+| Location | `position_id`, `parent_id`, `label`, `position_mode`, `stowed_state`, `deployed_state_optional`, `access_sequence`, `retention_check` |
+| Mechanism | `mechanism_id`, `position_id`, `type`, `manufacturer_reference_optional`, `inspection_rule`, `functional_check`, `state` |
 | Item | `item_id`, `label`, `category`, `unit`, `consumable` |
 | Requirement | `plan_id`, `position_id`, `item_id`, `required_qty`, `minimum_qty`, `requirement_class`, `source_ref` |
 | Item instance | `instance_id`, `item_id`, `serial_or_batch_optional`, `expiry_date`, `inspection_due` |
@@ -21,6 +22,8 @@
 - Quantity uses a controlled unit vocabulary.
 - Dates use `YYYY-MM-DD`; timestamps use ISO 8601 with time zone.
 - A requirement marked `LAW`, `TECH`, `AIF`, or `MFR` has a non-empty source reference.
+- A movable position defines its safe stowed state, observable retention check, and applicable functional-check source.
+- Load limits, operating sequences, powered-mechanism tests, and locking requirements are never guessed; they require the applicable manufacturer or technical source.
 - A check result points to the exact plan version used.
 - Changes append audit events; they do not overwrite historic checks.
 
@@ -47,3 +50,4 @@ Suggested quantity logic: actual quantity `0` with required quantity above `0` i
 - Given an expired item, when the check is closed, then the system cannot label the vehicle fully operational without an authorized override and reason.
 - Given a CSV import with an unknown position, then the import rejects the row and reports its line number without partially hiding the error.
 - Given a plan update, then historic checks continue to render with the former version.
+- Given equipment stored in a movable mechanism, when a vehicle check is completed, then the result records both item presence and the mechanism's approved stowed/retained state.

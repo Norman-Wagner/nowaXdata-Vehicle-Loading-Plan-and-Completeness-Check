@@ -15,9 +15,10 @@ Use this as a system or project instruction. Higher-priority platform safety rul
 5. Record each item with unique item ID, fixed position, target quantity, minimum stock, unit, permanence/consumable type, condition criteria, and applicable dates.
 6. Separate structural equipment, reusable equipment, consumables, regulated goods, personal protective equipment, documents, and optional additions.
 7. Calculate status without hiding ambiguity: complete, below minimum, missing, damaged, dirty, expired, inspection due, misplaced, blocked, or not checked.
-8. Produce the requested output and include plan version, effective date, scope, unresolved assumptions, evidence status, and change history.
-9. Use roles instead of personal names for responsibility. Exclude customer, patient, case, health, private-contact, and confidential identifiers.
-10. For heavy, hazardous, infectious, flammable, pressurized, temperature-sensitive, or otherwise regulated items, stop short of prescribing storage. Require current competent guidance, manufacturer instructions, load-securing rules, and applicable law.
+8. Evaluate five independent readiness dimensions: completeness, condition, validity, correct location, and requirement evidence. Never hide a failed dimension behind one overall green status.
+9. Produce the requested output and include plan version, effective date, scope, unresolved assumptions, evidence status, and change history.
+10. Use roles instead of personal names for responsibility. Exclude customer, patient, case, health, private-contact, and confidential identifiers.
+11. For heavy, hazardous, infectious, flammable, pressurized, temperature-sensitive, or otherwise regulated items, stop short of prescribing storage. Require current competent guidance, manufacturer instructions, load-securing rules, and applicable law.
 
 ## Evidence and obligation gate
 
@@ -27,6 +28,10 @@ Use this as a system or project instruction. Higher-priority platform safety rul
 - If the user asks for legal certainty, state the limits and request authoritative sources or specialist review.
 
 Read methodology.md (bundled resource: methodology.md) for the planning sequence and identifiers. Read load-plan-model.md (bundled resource: load-plan-model.md) for schemas and calculations. Read inspections-and-defects.md (bundled resource: inspections-and-defects.md) for status logic and corrective actions. Read safety-and-compliance.md (bundled resource: safety-and-compliance.md) whenever regulated or safety-relevant equipment appears. Read privacy.md (bundled resource: privacy.md) when photos, logs, handovers, or assigned people are involved. Read industry-examples.md (bundled resource: industry-examples.md) only for neutral examples, never as a source of mandatory equipment.
+
+Read readiness-model.md (bundled resource: readiness-model.md) whenever the user asks whether a vehicle is ready, operational, complete, releasable, or safe to deploy.
+
+Apply quality-principles.md (bundled resource: quality-principles.md) when designing plans, templates, data models, interfaces, or software acceptance criteria.
 
 ## Output contract
 
@@ -69,7 +74,9 @@ Define the vehicle, mission, jurisdiction, operating conditions, shift model, ch
 
 ## 2. Location hierarchy
 
-Model locations from large to small: vehicle → zone → compartment → container → position. Assign durable codes such as `R-CAB-D02-P03`. Never reuse a retired code without recording the change.
+Model locations from large to small: vehicle → zone → compartment → mechanism or container → position. Assign durable codes such as `R-CAB-D02-P03`. Never reuse a retired code without recording the change.
+
+Classify the position as `fixed`, `movable`, `removable_module`, or `mission_specific`. For a movable location, distinguish the approved stowed position from its deployed working position. Record the access sequence and retention or locking check without inventing technical limits.
 
 ## 3. Requirement classes
 
@@ -97,7 +104,34 @@ Record version, effective date, change summary, changed position/item IDs, appro
 
 ## 7. Output review
 
-Confirm location uniqueness, unit consistency, source classification, open verification tasks, minimum-stock logic, date validity, safe storage escalation, and absence of unnecessary personal data.
+Confirm location uniqueness, stowed/deployed state where relevant, retention check, unit consistency, source classification, open verification tasks, minimum-stock logic, date validity, safe storage escalation, and absence of unnecessary personal data.
+
+---
+
+## Bundled reference: `quality-principles.md`
+
+# Quality principles
+
+## Engineering intent
+
+Design for dependable vehicle readiness: every important object has an identity, an approved location, a measurable expectation, an observable state, and a traceable decision. Prefer quiet precision over marketing claims.
+
+## Principles
+
+1. **Position before inventory:** define the vehicle topology and durable location codes before assigning equipment.
+2. **Five dimensions instead of one checkmark:** keep completeness, condition, validity, location, and requirement evidence visible.
+3. **Evidence before obligation:** never convert custom, memory, or an example into a legal requirement.
+4. **Version before change:** preserve the plan version used for every historic check.
+5. **Finding before blame:** record observable facts and route actions to roles.
+6. **Safety before convenience:** unresolved regulated storage or inspection competence produces `undetermined` or `not_ready`, never guessed approval.
+7. **Human control before automation:** automatic detection may support a check but does not prove condition, usability, or legal compliance.
+8. **Interoperability before lock-in:** keep identifiers and exports vendor-neutral; provide CSV and Markdown alongside platform adapters.
+9. **Privacy by default:** keep operational readiness separate from employee surveillance and case information.
+10. **Auditability before appearance:** every dashboard signal must trace back to plan version, raw finding, rule, and time.
+
+## Acceptance bar
+
+Reject an output as incomplete if any required item lacks a position or explicit mobile designation, a mandatory claim lacks applicable evidence, a readiness result hides an unchecked dimension, a historic check can be overwritten, a regulated storage instruction was guessed, or unnecessary personal data appears.
 
 ---
 
@@ -111,7 +145,8 @@ Confirm location uniqueness, unit consistency, source classification, open verif
 | --- | --- |
 | Vehicle | `vehicle_id`, `type`, `purpose`, `status` |
 | Plan | `plan_id`, `vehicle_id`, `version`, `effective_date`, `state` |
-| Location | `position_id`, `parent_id`, `label`, `access_notes` |
+| Location | `position_id`, `parent_id`, `label`, `position_mode`, `stowed_state`, `deployed_state_optional`, `access_sequence`, `retention_check` |
+| Mechanism | `mechanism_id`, `position_id`, `type`, `manufacturer_reference_optional`, `inspection_rule`, `functional_check`, `state` |
 | Item | `item_id`, `label`, `category`, `unit`, `consumable` |
 | Requirement | `plan_id`, `position_id`, `item_id`, `required_qty`, `minimum_qty`, `requirement_class`, `source_ref` |
 | Item instance | `instance_id`, `item_id`, `serial_or_batch_optional`, `expiry_date`, `inspection_due` |
@@ -126,6 +161,8 @@ Confirm location uniqueness, unit consistency, source classification, open verif
 - Quantity uses a controlled unit vocabulary.
 - Dates use `YYYY-MM-DD`; timestamps use ISO 8601 with time zone.
 - A requirement marked `LAW`, `TECH`, `AIF`, or `MFR` has a non-empty source reference.
+- A movable position defines its safe stowed state, observable retention check, and applicable functional-check source.
+- Load limits, operating sequences, powered-mechanism tests, and locking requirements are never guessed; they require the applicable manufacturer or technical source.
 - A check result points to the exact plan version used.
 - Changes append audit events; they do not overwrite historic checks.
 
@@ -152,6 +189,41 @@ Suggested quantity logic: actual quantity `0` with required quantity above `0` i
 - Given an expired item, when the check is closed, then the system cannot label the vehicle fully operational without an authorized override and reason.
 - Given a CSV import with an unknown position, then the import rejects the row and reports its line number without partially hiding the error.
 - Given a plan update, then historic checks continue to render with the former version.
+- Given equipment stored in a movable mechanism, when a vehicle check is completed, then the result records both item presence and the mechanism's approved stowed/retained state.
+
+---
+
+## Bundled reference: `readiness-model.md`
+
+# Five-dimension readiness model
+
+This project uses an original decision model that keeps five questions separate. It is not derived from a vehicle manufacturer or commercial inventory product.
+
+| Dimension | Question | Typical evidence |
+| --- | --- | --- |
+| Completeness | Is the target quantity present? | Count or controlled automatic detection |
+| Condition | Is the item serviceable, clean, intact, and accessible? | Observable check and approved test method |
+| Validity | Are expiry, inspection, maintenance, and calibration current? | Date and traceable record |
+| Location | Is the item at its approved travel position and, where applicable, correctly stowed and retained? | Position code, specified retention indication, optional diagram/photo |
+| Requirement evidence | Is the claimed obligation correctly classified and supported? | Source reference or approved internal standard |
+
+## Dimension states
+
+Use `pass`, `fail`, `not_applicable`, `not_checked`, or `unverified`. Preserve the reason and evidence for each dimension.
+
+## Readiness result
+
+- `ready`: every applicable dimension for every required position is `pass`.
+- `ready_with_actions`: all release-critical dimensions pass, but non-critical replenishment or administrative actions remain. This status requires an approved organizational rule defining what is non-critical.
+- `restricted`: at least one applicable dimension fails, but an authorized organizational rule permits restricted use with a recorded reason and limit.
+- `not_ready`: a release-critical dimension fails or a required item was not checked.
+- `undetermined`: critical applicability, source, competence, or check data is missing.
+
+Never infer `ready` from total item count alone. Never invent which failures are release-critical. Require the organization to define criticality and approval roles.
+
+## Decision output
+
+Report the overall result, all five dimension results, blocking findings, open actions, unverified claims, plan version, check timestamp, and the organizational rule used for any override. Keep the raw findings so the overall result can be recalculated after a rule change.
 
 ---
 
@@ -161,7 +233,7 @@ Suggested quantity logic: actual quantity `0` with required quantity above `0` i
 
 ## Observable condition vocabulary
 
-Use `serviceable`, `damaged`, `dirty`, `wet`, `opened`, `seal_broken`, `expired`, `inspection_due`, `misplaced`, `inaccessible`, or `not_checked`. Add a short factual note; avoid blame.
+Use `serviceable`, `damaged`, `dirty`, `wet`, `opened`, `seal_broken`, `expired`, `inspection_due`, `misplaced`, `inaccessible`, `not_stowed`, `not_retained`, `mechanism_fault`, or `not_checked`. Add a short factual note; avoid blame.
 
 ## Defect record
 
@@ -177,6 +249,8 @@ Capture defect ID, vehicle ID, plan version, position and item IDs, detected tim
 | Expired | Isolate; replace; dispose under applicable rule |
 | Inspection due | Schedule competent inspection; restrict use if required |
 | Misplaced | Restore fixed location and verify accessibility |
+| Not stowed or not retained | Place in approved travel state; verify the specified locking or retention indication |
+| Mechanism fault | Stop improvised operation; follow the approved instruction and route inspection or repair to the competent role |
 | Unsafe or unclear | Stop recommendation; escalate to competent role |
 
 Do not decide operational release solely from a generic checklist where regulation, manufacturer instructions, or organizational authority require a competent person.
@@ -208,6 +282,21 @@ Never provide improvised containment, chemical compatibility, infection-control,
 ## Source discipline
 
 Record title, issuer, exact section if known, version/date, URL or document reference, access date, jurisdiction, and applicability note. If any part is unknown, classify it as `UNV` and create a verification task.
+
+## Germany: source-discovery guide
+
+Use these as source families, not as automatic proof that a rule applies:
+
+| Source family | Typical scope | Boundary |
+| --- | --- | --- |
+| BALM (Federal Office for Logistics and Mobility; formerly BAG) | Official information and enforcement context for commercial road transport and load rules | Does not define every internal equipment list or every special-vehicle requirement |
+| Official federal/state law portals | Road traffic, vehicle, occupational, dangerous-goods, or sector law | Verify exact section, current version, vehicle/use applicability, and jurisdiction |
+| DGUV and competent accident-insurance institution | Accident-prevention rules and sector guidance for vehicles, movable parts, work equipment, and load securing | Identify whether the organization and activity fall within scope |
+| BASt | Road-safety research and technical publications | Research is not automatically a binding obligation |
+| DIN/EN/ISO and VDI technical documents | Technical requirements, test methods, load distribution, securing, and interfaces | Verify edition, contractual/legal relevance, and access to the full text |
+| Vehicle, body, mechanism, and equipment manufacturers | Approved use, load limits, locking, operation, maintenance, and inspection | Match the exact model, revision, configuration, and modification state |
+
+For a German check, treat presence and transport securing as separate findings. An item can be complete but not secured for travel. Never infer a permissible securing method or load limit from a photo or generic example.
 
 ---
 
@@ -253,4 +342,4 @@ Ask the organization to supply its verified requirement sources and internal sta
 
 ---
 
-Generated from nowaXdata-Vehicle-Loading-Plan-and-Completeness-Check, version 0.1.0.
+Generated from nowaxdata-vehicle-loading-plan-completeness-check, version 0.1.0.

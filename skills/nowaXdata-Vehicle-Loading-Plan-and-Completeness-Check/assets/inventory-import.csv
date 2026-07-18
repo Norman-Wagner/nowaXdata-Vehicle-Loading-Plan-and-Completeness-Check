@@ -1,2 +1,0 @@
-vehicle_id,plan_id,plan_version,position_id,item_id,item,category,required_qty,minimum_qty,actual_qty,unit,consumable,condition,expiry_date,inspection_due,requirement_class,source_ref,status,action
-VEH-001,PLAN-001,0.1.0,R-CAB-D01-P01,ITEM-001,Neutral example item,consumable,4,2,4,piece,true,serviceable,,,INT,Internal standard example,complete,
