@@ -11,5 +11,8 @@ These examples illustrate structure only. They are not mandatory-equipment lists
 | Municipal fleet | Warning equipment, tools, seasonal material | Vehicle-specific duties, seasonal versions, public-service rules |
 | Event logistics | Cabling, barriers, tools, consumables | Quantity, electrical inspection, loading sequence |
 | Security service | Communication, lighting, documentation tools | Authorization, access control, battery checks, privacy |
+| Police or public-safety fleet | Publicly documented mission modules, warning equipment, protective and support equipment | Authority-specific procurement evidence, rapid access, operational security; never infer or publish tactical loadouts |
 
 Ask the organization to supply its verified requirement sources and internal standards before converting examples into approved plans.
+
+Public tender documents and official equipment concepts can be reviewed for functional patterns, but their wording, structure, product choices, and equipment lists must not be copied into a new template. Extract the underlying problem, source scope, acceptance condition, and verification method, then design an original solution.

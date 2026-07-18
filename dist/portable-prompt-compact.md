@@ -33,6 +33,10 @@ Read readiness-model.md (bundled resource: readiness-model.md) whenever the user
 
 Apply quality-principles.md (bundled resource: quality-principles.md) when designing plans, templates, data models, interfaces, or software acceptance criteria.
 
+Read germany-funeral-vehicle-routing.md (bundled resource: germany-funeral-vehicle-routing.md) whenever a German hearse, funeral vehicle, transport of deceased persons, DIN 75081, or German state funeral law is in scope. Route the check by all potentially relevant German states and the actual transport scenario; do not turn a technical standard or an example from one state into a nationwide equipment duty.
+
+For police, fire, rescue, civil-protection, recovery, municipal, or other special-purpose vehicles, use public procurement specifications and official equipment concepts only as vehicle-class-specific evidence or design research. Never generalize their equipment to another organization, vehicle class, or mission without a separate applicable source.
+
 ## Output contract
 
 Prefer tables for exact mappings. Use one row per item-position combination. At minimum include:
@@ -190,8 +194,17 @@ Use these as source families, not as automatic proof that a rule applies:
 | BASt | Road-safety research and technical publications | Research is not automatically a binding obligation |
 | DIN/EN/ISO and VDI technical documents | Technical requirements, test methods, load distribution, securing, and interfaces | Verify edition, contractual/legal relevance, and access to the full text |
 | Vehicle, body, mechanism, and equipment manufacturers | Approved use, load limits, locking, operation, maintenance, and inspection | Match the exact model, revision, configuration, and modification state |
+| Public procurement specifications and official equipment concepts | Vehicle-class, mission, acceptance-test, storage-position, and documentation requirements used by a public body | Treat as evidence only for the named procurement, authority, vehicle class, version, and mission; do not copy protected text or infer a general legal duty |
 
 For a German check, treat presence and transport securing as separate findings. An item can be complete but not secured for travel. Never infer a permissible securing method or load limit from a photo or generic example.
+
+### Special-purpose vehicle research
+
+Police, fire, rescue, civil-protection, recovery, and municipal vehicles can reveal useful functional patterns: fixed positions, rapid-access zones, sealed modules, acceptance tests, replenishment cycles, and checks after use. Search official procurement portals, published technical delivery conditions, official equipment concepts, accident-insurance publications, and manufacturer documents.
+
+Classify every extracted statement by its original scope. For example, observing a fire extinguisher in a police vehicle does not prove a universal police-vehicle rule and does not create a duty for hearses or ordinary service vans. Identify whether the basis is law, dangerous-goods rules, accident-insurance guidance, a risk assessment, procurement specification, manufacturer instruction, or an internal rule. If the basis cannot be verified, use `UNV`.
+
+Do not collect or reproduce non-public tactical layouts, security-sensitive police equipment, access codes, radio identifiers, or operational procedures. Public examples may inform the method, not become copied load plans.
 
 ---
 

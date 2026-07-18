@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 NAME = "nowaxdata-vehicle-loading-plan-completeness-check"
 SKILL = ROOT / "skills" / NAME
 DIST = ROOT / "dist"
-FULL = ("methodology.md", "quality-principles.md", "load-plan-model.md", "readiness-model.md", "inspections-and-defects.md", "safety-and-compliance.md", "privacy.md", "industry-examples.md")
+FULL = ("methodology.md", "quality-principles.md", "load-plan-model.md", "readiness-model.md", "inspections-and-defects.md", "safety-and-compliance.md", "germany-funeral-vehicle-routing.md", "privacy.md", "industry-examples.md")
 COMPACT = ("load-plan-model.md", "readiness-model.md", "safety-and-compliance.md", "privacy.md")
 
 def strip_frontmatter(text: str) -> str:

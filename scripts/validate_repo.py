@@ -41,12 +41,14 @@ def main() -> int:
     if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", NAME): errors.append("Skill name violates the open Agent Skills standard")
     claude = json.loads((ROOT / ".claude-plugin/plugin.json").read_text(encoding="utf-8"))
     if claude.get("name") != NAME: errors.append("Claude plugin and skill name differ")
-    refs = {"methodology.md", "quality-principles.md", "load-plan-model.md", "readiness-model.md", "inspections-and-defects.md", "safety-and-compliance.md", "privacy.md", "industry-examples.md"}
+    refs = {"methodology.md", "quality-principles.md", "load-plan-model.md", "readiness-model.md", "inspections-and-defects.md", "safety-and-compliance.md", "germany-funeral-vehicle-routing.md", "privacy.md", "industry-examples.md"}
     if {p.name for p in (SKILL / "references").glob("*.md")} != refs: errors.append("Reference file set differs")
     cases = json.loads((ROOT / "tests/cases.json").read_text(encoding="utf-8"))
     if len(cases) < 15 or not any(not c["expect_trigger"] for c in cases): errors.append("Trigger tests are insufficient")
     if not any(c.get("expect_privacy_gate") for c in cases): errors.append("Privacy gate test missing")
     if not any(c.get("expect_safety_gate") for c in cases): errors.append("Safety gate test missing")
+    if not any(c.get("expect_jurisdiction_route") for c in cases): errors.append("Jurisdiction routing test missing")
+    if not any(c.get("expect_scope_gate") for c in cases): errors.append("Special-vehicle scope test missing")
     csv_text = (SKILL / "assets/inventory-import.csv").read_text(encoding="utf-8")
     rows = list(csv.DictReader(io.StringIO(csv_text)))
     if not rows or "position_id" not in rows[0] or "requirement_class" not in rows[0]: errors.append("CSV template is invalid")

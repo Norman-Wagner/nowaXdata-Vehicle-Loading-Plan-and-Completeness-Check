@@ -32,6 +32,10 @@ Read [readiness-model.md](references/readiness-model.md) whenever the user asks 
 
 Apply [quality-principles.md](references/quality-principles.md) when designing plans, templates, data models, interfaces, or software acceptance criteria.
 
+Read [germany-funeral-vehicle-routing.md](references/germany-funeral-vehicle-routing.md) whenever a German hearse, funeral vehicle, transport of deceased persons, DIN 75081, or German state funeral law is in scope. Route the check by all potentially relevant German states and the actual transport scenario; do not turn a technical standard or an example from one state into a nationwide equipment duty.
+
+For police, fire, rescue, civil-protection, recovery, municipal, or other special-purpose vehicles, use public procurement specifications and official equipment concepts only as vehicle-class-specific evidence or design research. Never generalize their equipment to another organization, vehicle class, or mission without a separate applicable source.
+
 ## Output contract
 
 Prefer tables for exact mappings. Use one row per item-position combination. At minimum include:
