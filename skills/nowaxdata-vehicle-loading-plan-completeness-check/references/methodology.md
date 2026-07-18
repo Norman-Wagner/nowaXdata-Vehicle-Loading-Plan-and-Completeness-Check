@@ -18,6 +18,7 @@ Classify the position as `fixed`, `movable`, `removable_module`, or `mission_spe
 | TECH | Technical rule or standard | Exact rule, edition, scope, access status |
 | AIF | Accident-insurance rule | Competent institution, rule, edition, scope |
 | MFR | Manufacturer instruction | Product/vehicle manual and revision |
+| CERT | Certification or quality-mark requirement | Program owner, current program/version, certificate scope, auditor or certification evidence |
 | INT | Internal company standard | Approved internal rule and owner role |
 | OPT | Optional recommendation | Clear reason; never presented as mandatory |
 | UNV | Unverified claim | Verification task before approval |
@@ -36,4 +37,4 @@ Record version, effective date, change summary, changed position/item IDs, appro
 
 ## 7. Output review
 
-Confirm location uniqueness, stowed/deployed state where relevant, retention check, unit consistency, source classification, open verification tasks, minimum-stock logic, date validity, safe storage escalation, and absence of unnecessary personal data.
+Confirm location uniqueness, stowed/deployed state where relevant, retention check, unit consistency, source classification, certification scope where relevant, open verification tasks, minimum-stock logic, date validity, safe storage escalation, and absence of unnecessary personal data.

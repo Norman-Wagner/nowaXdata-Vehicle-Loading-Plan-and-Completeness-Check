@@ -21,7 +21,7 @@
 - `required_qty >= 0`; `0 <= minimum_qty <= required_qty` unless a documented business rule explains otherwise.
 - Quantity uses a controlled unit vocabulary.
 - Dates use `YYYY-MM-DD`; timestamps use ISO 8601 with time zone.
-- A requirement marked `LAW`, `TECH`, `AIF`, or `MFR` has a non-empty source reference.
+- A requirement marked `LAW`, `TECH`, `AIF`, `MFR`, or `CERT` has a non-empty source reference.
 - A movable position defines its safe stowed state, observable retention check, and applicable functional-check source.
 - Load limits, operating sequences, powered-mechanism tests, and locking requirements are never guessed; they require the applicable manufacturer or technical source.
 - A check result points to the exact plan version used.

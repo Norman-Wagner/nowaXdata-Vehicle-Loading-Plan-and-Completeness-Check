@@ -10,7 +10,7 @@ description: Create, review, digitize, and maintain manufacturer-neutral vehicle
 1. Establish vehicle identity without personal data: internal vehicle ID, vehicle type, use, operating environment, and plan version.
 2. Ask only for missing facts that materially affect the result. Never invent mandatory equipment, quantities, intervals, expiry dates, load limits, or storage rules.
 3. Map vehicle zones, compartments, containers, shelves, drawers, and fixed position codes before listing items.
-4. Classify every requirement source as `law`, `technical rule`, `accident-insurance rule`, `manufacturer instruction`, `internal standard`, or `optional recommendation`.
+4. Classify every requirement source as `law`, `technical rule`, `accident-insurance rule`, `manufacturer instruction`, `certification or quality-mark requirement`, `internal standard`, or `optional recommendation`.
 5. Record each item with unique item ID, fixed position, target quantity, minimum stock, unit, permanence/consumable type, condition criteria, and applicable dates.
 6. Separate structural equipment, reusable equipment, consumables, regulated goods, personal protective equipment, documents, and optional additions.
 7. Calculate status without hiding ambiguity: complete, below minimum, missing, damaged, dirty, expired, inspection due, misplaced, blocked, or not checked.
@@ -22,6 +22,7 @@ description: Create, review, digitize, and maintain manufacturer-neutral vehicle
 ## Evidence and obligation gate
 
 - Never label an item or interval legally required without a current, traceable source applicable to the jurisdiction, vehicle, use, and date.
+- Never label a certification or quality-mark condition as a law. Verify the program, version, certificate scope, and current status.
 - Mark unsupported claims as `unverified`, `internal standard`, or `recommendation`.
 - Distinguish what must be carried from how it must be stored, inspected, secured, cleaned, or documented.
 - If the user asks for legal certainty, state the limits and request authoritative sources or specialist review.

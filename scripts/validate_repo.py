@@ -49,6 +49,7 @@ def main() -> int:
     if not any(c.get("expect_safety_gate") for c in cases): errors.append("Safety gate test missing")
     if not any(c.get("expect_jurisdiction_route") for c in cases): errors.append("Jurisdiction routing test missing")
     if not any(c.get("expect_scope_gate") for c in cases): errors.append("Special-vehicle scope test missing")
+    if not any(c.get("expect_certification_gate") for c in cases): errors.append("Certification scope test missing")
     csv_text = (SKILL / "assets/inventory-import.csv").read_text(encoding="utf-8")
     rows = list(csv.DictReader(io.StringIO(csv_text)))
     if not rows or "position_id" not in rows[0] or "requirement_class" not in rows[0]: errors.append("CSV template is invalid")
