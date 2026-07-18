@@ -1,0 +1,11 @@
+{
+  "name": "nowaxdata-skills",
+  "owner": {"name": "Norman Wagner / WagnerConnect"},
+  "plugins": [
+    {
+      "name": "nowaxdata-vehicle-loading-plan-completeness-check",
+      "source": "./",
+      "description": "Vehicle loading plans, fixed-position completeness checks, and five-dimension readiness decisions."
+    }
+  ]
+}

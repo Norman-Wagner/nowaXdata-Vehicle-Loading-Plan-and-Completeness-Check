@@ -1,0 +1,18 @@
+# Industry examples
+
+These examples illustrate structure only. They are not mandatory-equipment lists.
+
+| Sector | Example categories | Planning emphasis |
+| --- | --- | --- |
+| Funeral service | Transfer equipment, protective material, cleaning supplies, documents | Dignified handling, hygiene, fixed locations, privacy |
+| Trade/service van | Hand tools, power tools, measuring devices, consumables | Load securing, battery state, calibration, theft prevention |
+| Care service | Protective equipment, approved supplies, documents/devices | Hygiene, expiry, privacy, temperature requirements |
+| Aid organization | Mission modules, protective equipment, communication, consumables | Readiness, regulated equipment, competent inspection |
+| Municipal fleet | Warning equipment, tools, seasonal material | Vehicle-specific duties, seasonal versions, public-service rules |
+| Event logistics | Cabling, barriers, tools, consumables | Quantity, electrical inspection, loading sequence |
+| Security service | Communication, lighting, documentation tools | Authorization, access control, battery checks, privacy |
+| Police or public-safety fleet | Publicly documented mission modules, warning equipment, protective and support equipment | Authority-specific procurement evidence, rapid access, operational security; never infer or publish tactical loadouts |
+
+Ask the organization to supply its verified requirement sources and internal standards before converting examples into approved plans.
+
+Public tender documents and official equipment concepts can be reviewed for functional patterns, but their wording, structure, product choices, and equipment lists must not be copied into a new template. Extract the underlying problem, source scope, acceptance condition, and verification method, then design an original solution.

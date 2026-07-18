@@ -1,0 +1,25 @@
+{
+  "name": "nowaxdata-vehicle-loading-plan-completeness-check",
+  "version": "0.1.0",
+  "description": "Herstellerneutraler Skill für Fahrzeug-Beladepläne, Vollzähligkeitskontrollen, Mängel- und Fristenmanagement.",
+  "author": {"name": "Norman Wagner / WagnerConnect"},
+  "license": "Apache-2.0",
+  "keywords": ["vehicle", "load-plan", "inventory", "checklist", "fleet", "inspection"],
+  "skills": "./skills/",
+  "homepage": "https://nowaxdata.de",
+  "repository": "https://github.com/Norman-Wagner/nowaXdata-Vehicle-Loading-Plan-and-Completeness-Check",
+  "interface": {
+    "displayName": "NOWA X Data – Vehicle Loading Plan",
+    "shortDescription": "Fahrzeugbeladung planen und prüfen",
+    "longDescription": "Erstellt branchenneutrale Beladepläne, Soll-Ist-Kontrollen, Mängelprotokolle, Nachfülllisten und digitale Datenmodelle.",
+    "developerName": "Norman Wagner · WagnerConnect",
+    "category": "Productivity",
+    "capabilities": ["Interactive"],
+    "defaultPrompt": [
+      "Erstelle einen Beladeplan für dieses Fahrzeug.",
+      "Prüfe diese Fahrzeugausstattung auf Vollzähligkeit.",
+      "Erzeuge eine Nachfüll- und Mängelliste."
+    ],
+    "brandColor": "#0B3B60"
+  }
+}

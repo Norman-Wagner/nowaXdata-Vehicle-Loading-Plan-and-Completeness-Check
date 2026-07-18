@@ -1,0 +1,7 @@
+interface:
+  display_name: "NOWA X Data Vehicle Loading Plan"
+  short_description: "Fahrzeugbeladung planen und vollständig prüfen"
+  brand_color: "#0B3B60"
+  default_prompt: "Use $nowaxdata-vehicle-loading-plan-completeness-check to create a sourced vehicle loading plan and readiness check without unnecessary personal data."
+policy:
+  allow_implicit_invocation: true
