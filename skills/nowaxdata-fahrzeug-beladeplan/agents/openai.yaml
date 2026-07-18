@@ -1,0 +1,7 @@
+interface:
+  display_name: "nowaxdata Fahrzeug-Beladeplan"
+  short_description: "Beladepläne sicher planen und prüfen"
+  default_prompt: "Use $nowaxdata-fahrzeug-beladeplan to plan a vehicle loading and completeness feature."
+
+policy:
+  allow_implicit_invocation: true

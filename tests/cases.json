@@ -1,0 +1,1 @@
+[{"request":"Erstelle einen Beladeplan für einen Bestattungskraftwagen.","expect_trigger":true},{"request":"Prüfe Mindestbestände und erstelle Nachbestellungen.","expect_trigger":true},{"request":"Plane die Route für drei Überführungen.","expect_trigger":false},{"request":"Führe ein steuerliches Fahrtenbuch.","expect_trigger":false}]
